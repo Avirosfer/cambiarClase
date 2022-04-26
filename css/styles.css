@@ -1,0 +1,158 @@
+
+:root{
+    --blanco: #FFFFFF;
+    --oscuro:  #212121;
+    --primario: #6DA9CD;
+    --secundario: #3688B8;
+    --azuloscuro:  #25719D;
+    --azulClaro: #DCF1FA;
+    --grisClaro: #E3E3E3;
+    --botones:  #0D4251;
+    --rayas: #A1C1D4;
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body{
+    font-size: 24px; /*1rem =10px*/
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+}
+
+.agrupar{
+    max-width: 128rem;
+    margin: 0 auto;
+}
+
+.contenedor{
+    max-width: 128rem;
+    margin: 0 auto;
+}
+
+header{
+
+    background-color: var(--primario);
+    /*margin-top: 5rem;*/
+
+}
+
+.contenedor-logo{
+    background-color: var(--blanco);
+    width: 60rem;
+    /*margin: 0 auto;*/
+    border-radius: 50px;
+    margin-top: 2rem;
+    margin-right: 10rem;
+    margin-bottom: 2rem;
+    padding-left: 1.8rem;
+}
+
+.contenedor-iconos{
+
+    width: 20rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.7rem;
+    margin-right: 2rem;
+}
+
+.contenedor-iconos h4{
+    color: var(--blanco);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.flex{
+    display: flex;
+}
+
+.alinear-derecha{
+    justify-content: flex-end;
+}
+
+.imagen1{
+
+    float: center;
+    width:  15rem;
+    height: 6rem; 
+    margin-top: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.imagen2{
+
+    float: center;
+    width:  40rem;
+    height: 6rem; 
+    margin-top: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.nav-bg{
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.navegacion-principal{
+    flex-direction: row;
+}   
+
+.navegacion-principal a{
+    color: var(--blanco);
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.navegacion-principal a:hover{
+    background-color: var(--azuloscuro);
+    color: var(--blanco);
+}
+
+.navegacion-principal a{
+    color: var(--blanco);
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+
+.frame{
+    margin-top: 1.4rem;
+    border: none;
+}
+
+.footer{
+    background-color: var(--secundario);
+    margin-top: 1rem;
+}
+
+.footer p{
+    color: var(--blanco);
+    font-family: 'Raleway', sans-serif;
+    margin: 0rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: normal;
+    text-align: center;
+}

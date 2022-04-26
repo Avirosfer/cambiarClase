@@ -1,0 +1,38 @@
+:root {
+                --color-on: #8fcf54;
+                --color-off: #0D4251;
+                --color-button: #FFFFFF;
+                --color-black: #0D4251;
+            }
+            .switch-button {
+                display: inline-block;
+            }
+            .switch-button .switch-button__checkbox {
+                display: none;
+            }
+            .switch-button .switch-button__label {
+                background-color: var(--color-off);
+                width: 2.5rem;
+                height: 1.5rem;
+                border-radius: 3rem;
+                display: inline-block;
+                position: relative;
+            }
+            .switch-button .switch-button__label:before{
+                transition: .2s;
+                display: block;
+                position: absolute;
+                margin-top: 0.2rem;
+                width: 1.1rem;
+                height: 1.1rem;
+                background-color: var(--color-button);
+                content: '';
+                border-radius: 50%;
+                box-shadow: inset 0px 0px 0px 1px var(--color-black);
+            }
+            .switch-button .switch-button__checkbox:checked + .switch-button__label{
+                background-color: var(--color-on);
+            }
+            .switch-button .switch-button__checkbox:checked + .switch-button__label:before{
+                transform: translateX(1.4rem);
+            }
