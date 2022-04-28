@@ -10,8 +10,14 @@
    $consulta = $bd->query("SELECT * FROM propietarios;");
    $resultados = $consulta->fetchall(PDO::FETCH_OBJ);
 
+   $sql = $bd->query("SELECT idCan AS CaninoID, lisCan as CaninoRaza FROM razaCanino;");
+   $data = $sql->FetchAll(PDO::FETCH_ASSOC);
 
+   $canList = array_unique(array_column($data, 'lisCan'));
+   $canId = array_unique(array_column($data, 'idCan'));
+   
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -44,6 +50,12 @@
 </head>
 
 <body class="agrupar">
+
+<?php
+
+    
+
+?>
 
 <form action="insertarPaciente.php" method="POST"> 
 
@@ -78,9 +90,13 @@
 
                                                         <div class="contenedor-imagen flex">
 
-                                                                <figure >
-                                                                     <img  class="fotoMascota" src="data:image/jpg;base64">
-                                                                </figure>
+                                                                <form action="guardarFoto.php" method="POST" enctype="multipart/form-data">
+                                                                    <input REQUIRED type="file" name="foto"/>
+                                                                    <figure >
+                                                                        <img  class="fotoMascota" src="data:image/jpg;base64">
+                                                                    </figure>
+
+                                                                </form>
 
                                                         </div>
 
@@ -88,34 +104,65 @@
                                                             <label>Nombre:</label>
                                                             <input class="input-text" type="text" name="nomPac" value="" autofocus>
                                                         </div>
-
                                                         <div class="campo1">
+
                                                             <label>Especie:</label>
+
+                                                            <select name="espSel" id="espSel">
+                                                                <?php
+
+                                                                    $mysqli =mysqli_connect("localhost", "root", "", "vetpetsoft");
+                                                                    $results = mysqli_query($mysqli,"SELECT * FROM especie");           
+
+                                                                    while ($row = $results->fetch_assoc()):
+                                                                        $idEspecie = $row['idEsp'];
+                                                                        $especie = $row['lisEsp'];
+                                                                        echo "<option value=$idEspecie>$especie</option>";
+                                                                    endwhile
+
+                                                                ?>
+
+                                                            </select>
+
                                                             <input class="input-text" type="text" name="espPac" value="">
                                                         </div>
                                                         <div class="campo1">
                                                             <form action="" method="post">
                                                                 <label>Raza:</label>
-                                                                <select name="razSel">
-                                                                    <option value="0"></option>
-                                                                        <?php
+                                                                <select name="razSel" id="razSel">
+                                                                    <?php
 
-                                                                            include 'conexion.php';
+                                                                        $mysqli =mysqli_connect("localhost", "root", "", "vetpetsoft");
+                                                                        $results = mysqli_query($mysqli,"SELECT * FROM razacanino");           
 
-                                                                            $raza = $bd->query("SELECT * FROM razacanino;");
-                                                                            $lista = $raza->fetchall(PDO::FETCH_OBJ);
+                                                                        while ($row = $results->fetch_assoc()):
+                                                                            $idRazCan = $row['idCan'];
+                                                                            $razCan = $row['lisCan'];
+                                                                            echo "<option value=$idRazCan>$razCan</option>";
+                                                                        endwhile
 
-
-                                                                                while($datos = mysqli_fetch_array($lista)){
-                                                                                    echo '<option value="'.$datos[lisCan].'">'.$datos[lisCan].'</option>';
-                                                                                }
-                                                                        ?>
+                                                                    ?>
                                                                 </select>
                                                                 <input class="input-text" type="text" name="razPac" value="">
                                                             </form>
                                                         </div>
                                                         <div class="campo1">
                                                             <label>Sexo:</label>
+                                                            <select name="espSel" id="espSel">
+                                                                <?php
+
+                                                                    $mysqli =mysqli_connect("localhost", "root", "", "vetpetsoft");
+                                                                    $results = mysqli_query($mysqli,"SELECT * FROM sexo");           
+
+                                                                    while ($row = $results->fetch_assoc()):
+                                                                        $idSex = $row['idSexo'];
+                                                                        $sexo = $row['lisSex'];
+                                                                        echo "<option value=$idSex>$sexo</option>";
+                                                                    endwhile
+
+                                                                ?>
+
+                                                            </select>
                                                             <input class="input-text" type="text" name="sexPac" value="">
                                                         </div>
                                                         <div class="campo1">
